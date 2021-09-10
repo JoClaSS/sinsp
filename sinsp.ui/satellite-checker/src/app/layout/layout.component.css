@@ -1,0 +1,12 @@
+.example-spacer {
+    flex: 1 1 auto
+  }
+
+.little-spacer{
+    padding-left: 24px;
+  }
+
+.icon{
+    border-color:transparent;
+    background-color:transparent;
+}

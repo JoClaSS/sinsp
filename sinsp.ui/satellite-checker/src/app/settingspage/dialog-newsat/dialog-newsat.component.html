@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Create a new satellite</h1>
+<div mat-dialog-content>
+  <form class="newSat" [formGroup] = "satForm">
+    <mat-form-field class="fullWidth">
+      <input matInput placeholder="Satellite's name" formControlName="satellite_name">
+    </mat-form-field>
+    <mat-form-field class="fullWidth">
+      <input matInput placeholder="Responsible" formArrayName="responsible_id">
+    </mat-form-field>
+    <mat-form-field class="fullWidth">
+      <mat-label>Enable</mat-label>
+      <mat-select matNativeControl required formControlName="active">
+        <mat-option value="true">Yes</mat-option>
+        <mat-option value="false">No</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</div>
+
+

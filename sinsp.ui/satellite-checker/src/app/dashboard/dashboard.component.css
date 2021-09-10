@@ -1,0 +1,19 @@
+
+.button{
+    padding-bottom: 160px;
+    float:right;
+}
+
+.dot{
+    height: 100px;
+    width: 100px;
+
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 12px;
+    align-content: center;
+}
+
+mat-grid-tile{
+    width: 100%;
+}
