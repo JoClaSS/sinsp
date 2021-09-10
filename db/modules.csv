@@ -1,0 +1,328 @@
+id,modulename,modulefunction,moduleclass,moduleobject,category1,category2,measures,moduledescription,Type,Formulation,Dimension
+1,EPS,power,sensor,electrical,bus,,voltage,Batt. BUS voltage ,16,0.0023394775,V
+2,EPS,power,sensor,electrical,bus,,current,Batt. BUS current,16,0.0030517578,A
+3,EPS,power,sensor,electrical,battery,,voltage,Ext. Battery Pack Voltage,16,0.0023394775,V
+4,EPS,power,sensor,electrical,battery,,current,Ext. Battery Pack Current,16,0.0015258789,A
+5,EPS,power,sensor,panel,panel 3,panel 6,voltage,Solar Panel X axis voltage,16,0.0024414063,V
+6,EPS,power,sensor,panel,panel 3,,current,Solar Panel X- current,16,0.0006103516,A
+7,EPS,power,sensor,panel,panel 6,,current,Solar Panel X+ current,16,0.0006103516,A
+8,EPS,power,sensor,panel,panel 2,panel 5,voltage,Solar Panel Y axis voltage,16,0.0024414063,V
+9,EPS,power,sensor,panel,panel 5,,current,Solar Panel Y- current,16,0.0006103516,A
+10,EPS,power,sensor,panel,panel 2,,current,Solar Panel Y+ current,16,0.0006103516,A
+11,EPS,power,sensor,panel,panel 1,panel 4,voltage,Solar Panel Z axis voltage,16,0.0024414063,V
+12,EPS,power,sensor,panel,panel 4,,current,Solar Panel Z- current,16,0.0006103516,A
+13,EPS,power,sensor,panel,panel 1,,current,Solar Panel Z+ current,16,0.0006103516,A
+14,EPS,power,sensor,electrical,bus,,current,3.3V BUS current,16,0.0020345052,A
+15,EPS,power,sensor,electrical,bus,,current,5V BUS current,16,0.0020345052,A
+16,EPS,power,status,electrical,bus,,,3.3V Latch-up protected Output Status (ON\OFF),1,1,B
+17,EPS,power,status,electrical,bus,,,5V Latch-up protected Output Status (ON\OFF),1,1,B
+18,EPS,power,sensor,electrical,eps_sys,,temperature,MCU Temperature,16,0.0006103516,°C
+19,EPS,power,sensor,electrical,battery,,temperature,Batt. Cell 1 Temp.,16,0.00390625,°C
+20,EPS,power,sensor,electrical,battery,,temperature,Batt. Cell 2 Temp.,16,0.00390625,°C
+21,EPS,power,status,electrical,bus,,,DATA (Flags) Input - Latch-up Protected output 5V – LSB,1,1,B
+22,EPS,power,status,electrical,bus,,,DATA (Flags) Input - Latch-up Protected output 3.3V,1,1,B
+23,EPS,power,status,electrical,bus,,,DATA (Flags) Input - 3.3V Power Good,1,1,B
+24,EPS,power,status,electrical,bus,,,DATA (Flags) Input - 5V Power Good,1,1,B
+25,EPS,power,status,electrical,eps_sys,,,DATA (Flags) Input - Reset SW Self Lock,1,1,B
+26,EPS,power,status,electrical,battery,,,DATA (Flags) Input - Battery Status – Complete,1,1,B
+27,EPS,power,status,electrical,battery,,,DATA (Flags) Input - Battery Status – Charge in progress,1,1,B
+28,EPS,power,status,electrical,eps_sys,,,DATA Output - SW Self Lock – LSB,1,1,B
+29,EPS,power,status,electrical,battery,bus,,DATA Output - Enable Battery BUS,1,1,B
+30,EPS,power,status,electrical,bus,,,DATA Output - Enable BCR BUS,1,1,B
+31,EPS,power,status,electrical,bus,,,DATA Output - Enable 3.3V BUS,1,1,B
+32,EPS,power,status,electrical,bus,,,DATA Output - Enable 5V BUS,1,1,B
+33,EPS,power,status,electrical,eps_sys,,,DATA Output - Output 1 / Payload,1,1,B
+34,EPS,power,status,electrical,eps_sys,,,DATA Output - Output 2,1,1,B
+35,EPS,power,status,electrical,eps_sys,,,DATA Output - Output 3 / OBC,1,1,B
+36,EPS,power,status,electrical,eps_sys,,,DATA Output - Output 4 / UHF,1,1,B
+37,EPS,power,status,electrical,eps_sys,,,DATA Output - Output 5,1,1,B
+38,EPS,power,status,electrical,eps_sys,,,DATA Output - Output 6,1,1,B
+39,EPS,power,status,electrical,battery,,,DATA Output - Battery heater 1,1,1,B
+40,EPS,power,status,electrical,battery,,,DATA Output - Battery heater 2,1,1,B
+41,EPS,power,status,electrical,battery,,,DATA Output - Battery heater 3 – MSB,1,1,B
+42,EPS,power,status,electrical,bus,,,DATA Output 2 - Latch-up Protected output 3.3V,1,1,B
+43,EPS,power,status,electrical,bus,,,DATA Output 2 - Latch-up Protected output 5V,1,1,B
+44,EPS,power,status,electrical,battery,,,DATA Output 2 - Shutdown Battery Charger,1,1,B
+45,EPS,power,status,electrical,battery,,,DATA Output 2 - Fast battery charge 230mA,1,1,B
+46,EPS,power,status,electrical,battery,,,DATA Output 2 - Fast battery charge 350mA,1,1,B
+47,EPS,power,counter,electrical,bus,,,Power ON Cycles Counter,16,1,B
+48,EPS,power,counter,electrical,bus,,,Under Voltage Counter,16,1,B
+49,EPS,power,counter,electrical,bus,,,Short Circuit Counter,16,1,B
+50,EPS,power,counter,electrical,eps_sys,,,Over Temperature Counter,16,1,B
+51,EPS,power,sensor,electrical,battery,,temperature,Batt. Pack 1 Temp. Sens. 1,16,0.00390625,°C
+52,EPS,power,sensor,electrical,battery,,temperature,Batt. Pack 1 Temp. Sens. 2,16,0.00390625,°C
+53,EPS,power,sensor,electrical,battery,,temperature,Batt. Pack 1 Temp. Sens. 1,16,0.00390625,°C
+54,EPS,power,sensor,electrical,battery,,temperature,Batt. Pack 1 Temp. Sens. 2,16,0.00390625,°C
+55,EPS,power,status,electrical,eps_sys,,,EPS Software Version,16,1,B
+56,EPS,power,configuration,electrical,bus,,,Defaults 1 - State on power up of output “LUP 3.3V”,1,1,B
+57,EPS,power,configuration,electrical,bus,,,Defaults 1 - State on power up of output “LUP 5V”,1,1,B
+58,EPS,power,configuration,electrical,battery,,,Defaults 1 - State on power up of output “Fast Charge +230mA”,1,1,B
+59,EPS,power,configuration,electrical,battery,,,Defaults 1 - State on power up of output “Fast Charge +350mA”,1,1,B
+60,EPS,power,configuration,electrical,eps_sys,,,Defaults 2 - State on power up of output OUT 1,1,1,B
+61,EPS,power,configuration,electrical,eps_sys,,,Defaults 2 - State on power up of output OUT 2,1,1,B
+62,EPS,power,configuration,electrical,eps_sys,,,Defaults 2 - State on power up of output OUT 3,1,1,B
+63,EPS,power,configuration,electrical,eps_sys,,,Defaults 2 - State on power up of output OUT 4,1,1,B
+64,EPS,power,configuration,electrical,eps_sys,,,Defaults 2 - State on power up of output OUT 5,1,1,B
+65,EPS,power,configuration,electrical,eps_sys,,,Defaults 2 - State on power up of output OUT 6,1,1,B
+66,EPS,power,counter,electrical,battery,,,Counter for number of charging cycles,16,1,B
+67,OBC,orientation,sensor,accelerometer,acc 1,,acceleration,Accelerometer 1 X,16,0.00098,g
+68,OBC,orientation,sensor,accelerometer,acc 1,,acceleration,Accelerometer 1 Y,16,0.00098,g
+69,OBC,orientation,sensor,accelerometer,acc 1,,acceleration,Accelerometer 1 Z,16,0.00098,g
+70,OBC,orientation,status,accelerometer,acc 1,,,Accelerometer 1 Regs - WHO_AM_I,8,1,B
+71,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - CTRL_REG1,8,1,B
+72,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - CTRL_REG2,8,1,B
+73,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - CTRL_REG3,8,1,B
+74,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - CTRL_REG4,8,1,B
+75,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - CTRL_REG5,8,1,B
+76,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - HP_FILTER_RESET,8,1,B
+77,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - REFERENCE,8,1,B
+78,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - STATUS_REG,8,1,B
+79,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT1_CFG,8,1,B
+80,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT1_SOURCE,8,1,B
+81,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT1_THS,8,1,B
+82,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT1_DURATION,8,1,B
+83,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT2_CFG,8,1,B
+84,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT2_SOURCE,8,1,B
+85,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT2_THS,8,1,B
+86,OBC,orientation,configuration,accelerometer,acc 1,,,Accelerometer 1 Regs - INT2_DURATION,8,1,B
+87,OBC,orientation,sensor,accelerometer,acc 2,,acceleration,Accelerometer 2 X,16,0.00098,g
+88,OBC,orientation,sensor,accelerometer,acc 2,,acceleration,Accelerometer 2 Y,16,0.00098,g
+89,OBC,orientation,sensor,accelerometer,acc 2,,acceleration,Accelerometer 2 Z,16,0.00098,g
+90,OBC,orientation,status,accelerometer,acc 2,,,Accelerometer 2 Regs - WHO_AM_I,8,1,B
+91,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - CTRL_REG1,8,1,B
+92,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - CTRL_REG2,8,1,B
+93,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - CTRL_REG3,8,1,B
+94,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - CTRL_REG4,8,1,B
+95,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - CTRL_REG5,8,1,B
+96,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - HP_FILTER_RESET,8,1,B
+97,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - REFERENCE,8,1,B
+98,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - STATUS_REG,8,1,B
+99,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT1_CFG,8,1,B
+100,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT1_SOURCE,8,1,B
+101,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT1_THS,8,1,B
+102,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT1_DURATION,8,1,B
+103,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT2_CFG,8,1,B
+104,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT2_SOURCE,8,1,B
+105,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT2_THS,8,1,B
+106,OBC,orientation,configuration,accelerometer,acc 2,,,Accelerometer 2 Regs - INT2_DURATION,8,1,B
+107,OBC,orientation,sensor,magnetometer,mag 1,,field,magnetometer/compass 1 X,16,0.0001461560947,gauss
+108,OBC,orientation,sensor,magnetometer,mag 1,,field,magnetometer/compass 1 Y,16,0.0001461560947,gauss
+109,OBC,orientation,sensor,magnetometer,mag 1,,field,magnetometer/compass 1 Z,16,0.0001461560947,gauss
+110,OBC,orientation,sensor,magnetometer,mag 1,,temperature,magnetometer/compass 1 Temperature,16,0.125,°C
+111,OBC,orientation,status,magnetometer,mag 1,,,magnetometer/compass 1 Regs - WHO_AM_I,8,1,B
+112,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - CTRL_REG1,8,1,B
+113,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - CTRL_REG2,8,1,B
+114,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - CTRL_REG3,8,1,B
+115,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - CTRL_REG4,8,1,B
+116,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - CTRL_REG5,8,1,B
+117,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - STATUS_REG,8,1,B
+118,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - INT_CFG,8,1,B
+119,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - INT_SRC,8,1,B
+120,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - INT_THS_L,8,1,B
+121,OBC,orientation,configuration,magnetometer,mag 1,,,magnetometer/compass 1 Regs - INT_THS_H,8,1,B
+122,OBC,orientation,sensor,magnetometer,mag 2,,field,magnetometer/compass 2 X,16,0.0001461560947,gauss
+123,OBC,orientation,sensor,magnetometer,mag 2,,field,magnetometer/compass 2 Y,16,0.0001461560947,gauss
+124,OBC,orientation,sensor,magnetometer,mag 2,,field,magnetometer/compass 2 Z,16,0.0001461560947,gauss
+125,OBC,orientation,sensor,magnetometer,mag 2,,temperature,magnetometer/compass 2 Temperature,16,0.125,°C
+126,OBC,orientation,status,magnetometer,mag 2,,,magnetometer/compass 2 Regs - WHO_AM_I,8,1,B
+127,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - CTRL_REG1,8,1,B
+128,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - CTRL_REG2,8,1,B
+129,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - CTRL_REG3,8,1,B
+130,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - CTRL_REG4,8,1,B
+131,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - CTRL_REG5,8,1,B
+132,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - STATUS_REG,8,1,B
+133,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - INT_CFG,8,1,B
+134,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - INT_SRC,8,1,B
+135,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - INT_THS_L,8,1,B
+136,OBC,orientation,configuration,magnetometer,mag 2,,,magnetometer/compass 2 Regs - INT_THS_H,8,1,B
+137,OBC,rtc,status,mcu,,,,Real Time from OBC RTC,S,1,B
+138,OBC,rtc,status,mcu,,,,Date from OBC Calendar,S,1,B
+139,OBC,rtc,status,mcu,,,,Uptime,S,1,B
+140,OBC,cpu,status,mcu,obc_sys,,,Version Check (Boot),S,1,B
+141,OBC,cpu,status,mcu,obc_sys,,,Version Check (Application),S,1,B
+142,OBC,cpu,status,mcu,obc_sys,,,Version Check (SDK),S,1,B
+143,OBC,cpu,counter,mcu,obc_sys,,,Counters RST At every unexpected reset,16,1,B
+144,OBC,cpu,counter,mcu,obc_sys,,,Counters WWD Windows watchdog,16,1,B
+145,OBC,cpu,counter,mcu,obc_sys,,,Counters IWD Independent watchdog,16,1,B
+146,OBC,cpu,counter,mcu,obc_sys,,,Counters LPR Low power reset,16,1,B
+147,OBC,cpu,counter,mcu,obc_sys,,,Counters POR Power on rese,16,1,B
+148,OBC,cpu,counter,mcu,obc_sys,,,Counters RstPin Reset pin,16,1,B
+149,OBC,cpu,counter,mcu,obc_sys,,,Counters BOR Brownout reset,16,1,B
+150,OBC,cpu,counter,mcu,obc_sys,,,Counters HardFault Hard fault,16,1,B
+151,OBC,cpu,counter,mcu,obc_sys,,,Counters MemFault Memory management fault,16,1,B
+152,OBC,cpu,counter,mcu,obc_sys,,,Counters BusFault Pre-fetch faul,16,1,B
+153,OBC,cpu,counter,mcu,obc_sys,,,Counters UsageFault Undefined instruction or illegal state,16,1,B
+154,OBC,cpu,status,mcu,obc_sys,,,State output 1,1,1,B
+155,OBC,cpu,status,mcu,obc_sys,,,State output 2,1,1,B
+156,OBC,cpu,status,mcu,obc_sys,,,State output 3,1,1,B
+157,OBC,cpu,status,mcu,obc_sys,,,State output 5,1,1,B
+158,OBC,cpu,status,mcu,obc_sys,,,State output 6,1,1,B
+159,OBC,adcs,status,mcu,,,,Detumbling - status,S,1,B
+160,OBC,adcs,status,mcu,,,,Detumbling - algorithm,S,1,B
+161,OBC,adcs,status,mcu,,,,Detumbling - magnetometer errors,16,1,B
+162,OBC,adcs,status,mcu,,,,Detumbling - gyro errors,16,1,B
+163,OBC,adcs,status,mcu,,,,Detumbling - gyros,S,1,B
+164,OBC,adcs,status,mcu,,,,Detumbling - stability,16,1,B
+165,OBC,adcs,status,mcu,,,,Detumbling - state,8,1,B
+166,OBC,adcs,status,mcu,,,,Detumbling - quarantine,S,1,B
+167,OBC,adcs,status,mcu,,,,Determnination and control - status,S,1,B
+168,OBC,adcs,status,mcu,,,,Determnination and control - determination algorithm,S,1,B
+169,OBC,adcs,status,mcu,,,,Determnination and control - control algorithm,S,1,B
+170,OBC,adcs,status,mcu,,,,Determnination and control - magnetometer errors,16,1,B
+171,OBC,adcs,status,mcu,,,,Determnination and control - gyro errors,16,1,B
+172,OBC,adcs,status,mcu,,,,Determnination and control - gyros,S,1,B
+173,OBC,adcs,status,mcu,,,,Determnination and control - stability,16,1,B
+174,OBC,adcs,status,mcu,,,,Determnination and control - state,8,1,B
+175,OBC,adcs,status,mcu,,,,Determnination and control - mode,S,1,B
+176,OBC,adcs,configuration,mcu,,,,explicit targeting - Reference frame,1,1,B
+177,OBC,adcs,configuration,mcu,,,,explicit targeting - Targeting wall,8,1,B
+178,OBC,adcs,configuration,mcu,,,,explicit targeting - Targeted position  X Axis,64,1,B
+179,OBC,adcs,configuration,mcu,,,,explicit targeting - Targeted position  Y Axis,64,1,B
+180,OBC,adcs,configuration,mcu,,,,explicit targeting - Targeted position  Z Axis,64,1,B
+181,OBC,adcs,configuration,mcu,,,,automatic orbital control,S,1,B
+182,OBC,adcs,configuration,mcu,,,,common setup - Detumbling algorithm,8,1,B
+183,OBC,adcs,configuration,mcu,,,,common setup - Determination algorithm,1,1,B
+184,OBC,adcs,configuration,mcu,,,,common setup - Photo sensor configuration – max current level,64,1,B
+185,OBC,adcs,configuration,mcu,,,,common setup - Photo sensor configuration – sensor noise level,64,1,B
+186,OBC,adcs,configuration,mcu,,,,common setup - Photo sensor configuration – sensor albedo level,64,1,B
+187,OBC,adcs,configuration,mcu,,,,common setup - Magnetometer(s) gain,64,1,B
+188,OBC,adcs,configuration,mcu,,,,common setup - Gyroscope(s) gain,64,1,B
+189,OBC,adcs,configuration,mcu,,,,common setup - Angle (in rad),64,1,B
+190,OBC,adcs,configuration,mcu,,,,common setup - Detumbling start: Year,8,1,B
+191,OBC,adcs,configuration,mcu,,,,common setup - Detumbling start: Month,8,1,B
+192,OBC,adcs,configuration,mcu,,,,common setup - Detumbling start: Day,8,1,B
+193,OBC,adcs,configuration,mcu,,,,common setup - Detumbling start: Hour,8,1,B
+194,OBC,adcs,configuration,mcu,,,,common setup - Detumbling start: Minute,8,1,B
+195,OBC,adcs,configuration,mcu,,,,common setup - Detumbling start: Second,8,1,B
+196,OBC,adcs,configuration,mcu,,,,common setup - Configuration mask,8,1,B
+197,OBC,adcs,configuration,mcu,,,,determination setup - Initial position  x axis,64,1,B
+198,OBC,adcs,configuration,mcu,,,,determination setup - Initial position  y axis,64,1,B
+199,OBC,adcs,configuration,mcu,,,,determination setup - Initial position  z axis,64,1,B
+200,OBC,adcs,configuration,mcu,,,,determination setup - Initial velocity  x axis,64,1,B
+201,OBC,adcs,configuration,mcu,,,,determination setup - Initial velocity  y axis,64,1,B
+202,OBC,adcs,configuration,mcu,,,,determination setup - Initial velocity  z axis,64,1,B
+203,OBC,adcs,configuration,mcu,,,,determination setup - Satellite’s mass [kg],64,1,B
+204,OBC,adcs,configuration,mcu,,,,determination setup - Satellite’s dimensionless drag coefficient,64,1,B
+205,OBC,adcs,configuration,mcu,,,,determination setup - Satellite’s average area exposed for drag,64,1,B
+206,OBC,adcs,configuration,mcu,,,,force switching to particular mode,8,1,B
+207,SP1,adcs,sensor,tempsensor,panel 1,temp 1,temperature,Solar Panel 1 Z MTQ Temperature,16,0.007781057,°C
+208,SP1,adcs,sensor,photosensor,panel 1,photo 1,light,Solar Panel 1 Z MTQ Photosensor,16,1,B
+209,SP1,adcs,sensor,gyroscope,panel 1,gyro 3,angle/sec,Solar Panel 1 Z MTQ Gyroscope 3 out,16,0.07326,°/sec
+210,SP1,adcs,sensor,gyroscope,panel 1,gyro 3,angle,Solar Panel 1 Z MTQ Gyroscope 3 angle,16,0.03663,°
+211,SP1,adcs,status,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Flash memory write count,16,1,B
+212,SP1,adcs,sensor,gyroscope,panel 1,gyro 3,voltage,Gyroscope 3 - Output  power supply measurement,16,0.0018315,V
+213,SP1,adcs,sensor,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Output  analog input channel measurement,16,1,B
+214,SP1,adcs,sensor,gyroscope,panel 1,gyro 3,temperature,Gyroscope 3 - Output  internal temperature measurement,16,0.1453,°C
+215,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Calibration  offset/bias adjustment,16,1,B
+216,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Calibration  scale adjustment,16,1,B
+217,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Alarm 1 magnitude/polarity setting,16,1,B
+218,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Alarm 2 magnitude/polarity setting,16,1,B
+219,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Alarm 1 dynamic rate of change setting,16,1,B
+220,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Alarm 2 dynamic rate of change setting,16,1,B
+221,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Alarm control register,16,1,B
+222,SP1,adcs,actuator,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  DAC output voltage setting,16,1,B
+223,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  digital I/O line,16,1,B
+224,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  data ready  self-test settings,16,1,B
+225,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  internal sample rate,16,1,B
+226,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  dynamic range  filtering,16,1,B
+227,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  sleep mode initiation,16,1,B
+228,SP1,adcs,configuration,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Control  global commands,16,1,B
+229,SP1,adcs,status,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Diagnostic  error flags,16,1,B
+230,SP1,adcs,status,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Lot Identification Code 1,16,1,B
+231,SP1,adcs,status,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Lot Identification Code 2,16,1,B
+232,SP1,adcs,status,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Product identifier,16,1,B
+233,SP1,adcs,status,gyroscope,panel 1,gyro 3,,Gyroscope 3 - Serial number,16,1,B
+234,SP1,adcs,actuator,magnetorque,panel 1,trq 3,,Magnetorq3 Field Setup level and direction X+,8,1,B
+235,SP1,adcs,actuator,magnetorque,panel 1,trq 3,,Magnetorq3 Field Setup level and direction X-,8,1,B
+236,SP2,adcs,sensor,tempsensor,panel 2,temp 2,temperature,Solar Panel 2 X/Y MTQ Temperature,16,0.007781057,°C
+237,SP2,adcs,sensor,photosensor,panel 2,photo 2,light,Solar Panel 2 X/Y MTQ Photosensor,16,1,B
+238,SP2,adcs,sensor,gyroscope,panel 2,gyro 2,angle/sec,Solar Panel 2 X/Y MTQ Gyroscope 2 out,16,0.07326,°/sec
+239,SP2,adcs,sensor,gyroscope,panel 2,gyro 2,angle,Solar Panel 2 X/Y MTQ Gyroscope 2 angle,16,0.03663,°
+240,SP2,adcs,status,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Flash memory write count,16,1,B
+241,SP2,adcs,sensor,gyroscope,panel 2,gyro 2,voltage,Gyroscope 2 - Output  power supply measurement,16,0.0018315,V
+242,SP2,adcs,sensor,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Output  analog input channel measurement,16,1,B
+243,SP2,adcs,sensor,gyroscope,panel 2,gyro 2,temperature,Gyroscope 2 - Output  internal temperature measurement,16,0.1453,°C
+244,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Calibration  offset/bias adjustment,16,1,B
+245,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Calibration  scale adjustment,16,1,B
+246,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Alarm 1 magnitude/polarity setting,16,1,B
+247,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Alarm 2 magnitude/polarity setting,16,1,B
+248,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Alarm 1 dynamic rate of change setting,16,1,B
+249,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Alarm 2 dynamic rate of change setting,16,1,B
+250,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Alarm control register,16,1,B
+251,SP2,adcs,actuator,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  DAC output voltage setting,16,1,B
+252,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  digital I/O line,16,1,B
+253,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  data ready  self-test settings,16,1,B
+254,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  internal sample rate,16,1,B
+255,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  dynamic range  filtering,16,1,B
+256,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  sleep mode initiation,16,1,B
+257,SP2,adcs,configuration,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Control  global commands,16,1,B
+258,SP2,adcs,status,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Diagnostic  error flags,16,1,B
+259,SP2,adcs,status,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Lot Identification Code 1,16,1,B
+260,SP2,adcs,status,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Lot Identification Code 2,16,1,B
+261,SP2,adcs,status,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Product identifier,16,1,B
+262,SP2,adcs,status,gyroscope,panel 2,gyro 2,,Gyroscope 2 - Serial number,16,1,B
+263,SP2,adcs,actuator,magnetorque,panel 2,trq 2,,Magnetorq2 Field Setup level and direction X+,8,1,B
+264,SP2,adcs,actuator,magnetorque,panel 2,trq 2,,Magnetorq2 Field Setup level and direction X-,8,1,B
+265,SP3,adcs,sensor,tempsensor,panel 3,temp 3,temperature,Solar Panel 3 X/Y RBF Temperature,16,0.007781057,°C
+266,SP3,adcs,sensor,photosensor,panel 3,photo 3,light,Solar Panel 3 X/Y RBF Photosensor,16,1,B
+267,SP4,adcs,sensor,tempsensor,panel 4,temp 4,temperature,Solar Panel 4 Z Temperature,16,0.007781057,°C
+268,SP4,adcs,sensor,photosensor,panel 4,photo 4,light,Solar Panel 4 Z Photosensor,16,1,B
+269,SP5,adcs,sensor,tempsensor,panel 5,temp 5,temperature,Solar Panel 5 X/Y Temperature,16,0.007781057,°C
+270,SP5,adcs,sensor,photosensor,panel 5,photo 5,light,Solar Panel 5 X/Y Photosensor,16,1,B
+271,SP6,adcs,sensor,tempsensor,panel 6,temp 6,temperature,Solar Panel 6 X/Y MTQ Temperature,16,0.007781057,°C
+272,SP6,adcs,sensor,photosensor,panel 6,photo 6,light,Solar Panel 6 X/Y MTQ Photosensor,16,1,B
+273,SP6,adcs,sensor,gyroscope,panel 6,gyro 1,angle/sec,Solar Panel 6 X/Y MTQ Gyroscope 1 out,16,0.07326,°/sec
+274,SP6,adcs,sensor,gyroscope,panel 6,gyro 1,angle,Solar Panel 6 X/Y MTQ Gyroscope 1 angle,16,0.03663,°
+275,SP6,adcs,status,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Flash memory write count,16,1,B
+276,SP6,adcs,sensor,gyroscope,panel 6,gyro 1,voltage,Gyroscope 1 - Output  power supply measurement,16,0.0018315,V
+277,SP6,adcs,sensor,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Output  analog input channel measurement,16,1,B
+278,SP6,adcs,sensor,gyroscope,panel 6,gyro 1,temperature,Gyroscope 1 - Output  internal temperature measurement,16,0.1453,°C
+279,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Calibration  offset/bias adjustment,16,1,B
+280,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Calibration  scale adjustment,16,1,B
+281,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Alarm 1 magnitude/polarity setting,16,1,B
+282,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Alarm 2 magnitude/polarity setting,16,1,B
+283,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Alarm 1 dynamic rate of change setting,16,1,B
+284,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Alarm 2 dynamic rate of change setting,16,1,B
+285,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Alarm control register,16,1,B
+286,SP6,adcs,actuator,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  DAC output voltage setting,16,1,B
+287,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  digital I/O line,16,1,B
+288,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  data ready  self-test settings,16,1,B
+289,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  internal sample rate,16,1,B
+290,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  dynamic range  filtering,16,1,B
+291,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  sleep mode initiation,16,1,B
+292,SP6,adcs,configuration,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Control  global commands,16,1,B
+293,SP6,adcs,status,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Diagnostic  error flags,16,1,B
+294,SP6,adcs,status,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Lot Identification Code 1,16,1,B
+295,SP6,adcs,status,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Lot Identification Code 2,16,1,B
+296,SP6,adcs,status,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Product identifier,16,1,B
+297,SP6,adcs,status,gyroscope,panel 6,gyro 1,,Gyroscope 1 - Serial number,16,1,B
+298,SP6,adcs,actuator,magnetorque,panel 6,trq 1,,Magnetorq1 Field Setup level and direction X+,8,1,B
+299,SP6,adcs,actuator,magnetorque,panel 6,trq 1,,Magnetorq1 Field Setup level and direction X-,8,1,B
+300,UHF,communication,status,radio,,,,Status Control Word (SCW),16,1,B
+301,UHF,communication,configuration,radio,,,,Radio Frequency Configuration,32,1,B
+302,UHF,rtc,status,radio,,,,Uptime,32,1,B
+303,UHF,communication,status,radio,,,,Number of Transmitted Packets,32,1,B
+304,UHF,communication,status,radio,,,,Number of Received Packets,32,1,B
+305,UHF,communication,status,radio,,,,Number of Received Packets with CRC Error,32,1,B
+306,UHF,communication,configuration,radio,,,,Transparent (PIPE) Mode Timeout Period Configuration,8,1,B
+307,UHF,communication,configuration,radio,,,,Beacon Message Transmission Period Configuration,16,1,B
+308,UHF,communication,configuration,radio,,,,Audio Beacon Period Between the Transmissions,16,1,B
+309,UHF,communication,sensor,radio,,,temperature,Internal Temperature Sensor Measurement Value,16,0.1,°C
+310,UHF,communication,configuration,radio,,,,Generic Write And/Or Read From an I2C Device,S,1,B
+311,UHF,communication,configuration,radio,,,,Low Power Mode,8,1,B
+312,UHF,communication,configuration,radio,,,,Destination Call Sign,32,1,B
+313,UHF,communication,configuration,radio,,,,Source Call Sign,32,1,B
+314,UHF,communication,configuration,radio,,,,Morse Code Call Sign,8,1,B
+315,UHF,communication,configuration,radio,,,,MIDI Audio Beacon,S,1,B
+316,UHF,communication,status,radio,,,,Software Version Build,16,1,B
+317,UHF,communication,configuration,radio,,,,Device Payload Size,16,1,B
+318,UHF,communication,configuration,radio,,,,Beacon Message Content Configuration,S,1,B
+319,UHF,communication,configuration,radio,,,,Device Address Configuration,8,1,B
+320,UHF,communication,configuration,radio,,,,FRAM Memory Read/Write,S,1,B
+321,UHF,communication,configuration,radio,,,,Radio Transceiver Property Configuration,S,1,B
+322,UHF,communication,configuration,radio,,,,Secure Mode,32,1,B
+323,UHF,communication,configuration,radio,,,,Firmware Update,S,1,B
+324,ANT,communication,configuration,radio,,,,Four UHF antenna register 1,8,1,B
+325,ANT,communication,configuration,radio,,,,Four UHF antenna register 2,8,1,B
+326,ANT,communication,configuration,radio,,,,Four UHF antenna register 3,8,1,B
+327,ANT,communication,configuration,radio,,,,Four UHF antenna register 4,8,1,B
