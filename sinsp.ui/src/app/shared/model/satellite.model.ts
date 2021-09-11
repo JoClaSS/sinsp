@@ -1,5 +1,5 @@
 export interface Satellite{
+    id: string;
     satellite_name: string;
-    responsible_id: string;
-    active: string;
+    active: string;  
 }

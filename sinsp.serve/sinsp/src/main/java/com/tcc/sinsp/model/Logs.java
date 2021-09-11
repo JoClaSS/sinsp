@@ -18,6 +18,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -41,7 +43,7 @@ public class Logs {
 	  @CreationTimestamp
 	  @Temporal(TemporalType.TIMESTAMP)
 	  private Date logtime;
-	  @ManyToOne(cascade=CascadeType.PERSIST)
+	  @ManyToOne(cascade=CascadeType.ALL)
 	  @JoinColumn(name="satellites_id")
 	  @JsonIgnore
 	  private Satellites satellite;

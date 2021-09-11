@@ -22,7 +22,6 @@ export class SettingspageComponent implements OnInit {
   }
 
   showSatellite(){
-    
     this.service.getSatelliteArray().subscribe(dados=> {
       this.satArray = dados;
       console.log(dados);

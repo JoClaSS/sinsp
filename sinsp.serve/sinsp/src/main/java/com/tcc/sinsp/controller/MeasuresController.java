@@ -80,31 +80,13 @@ public class MeasuresController {
     	return repository.findAll();
     }
     
-    @GetMapping("/samplesch1")
+    @GetMapping("/sample")
     public Page<Measures> getOrganizedMeasure(
     		@RequestParam(value = "modules", required = true) Integer modules,
     		@RequestParam(value = "satellites", required = true) Integer satellites,
+    		@RequestParam(value = "size", required = true) Page size,
     		@PageableDefault(page=0,size=100,sort="id",direction= Sort.Direction.DESC) Pageable pageable
     		){
     	   return repository.findMeasures(modules,satellites,pageable);
-    }
-    
-    @GetMapping("/samplesch2")
-    public Page<Measures> getOrganizedMeasure2(
-    		@RequestParam(value = "modules", required = true) Integer modules,
-    		@RequestParam(value = "satellites", required = true) Integer satellites,
-    		@PageableDefault(page=0,size=500,sort="id",direction= Sort.Direction.DESC) Pageable pageable
-    		){
-    	   return repository.findMeasures(modules,satellites,pageable);
-    }
-    
-    @GetMapping("/samplesch3")
-    public Page<Measures> getOrganizedMeasure3(
-    		@RequestParam(value = "modules", required = true) Integer modules,
-    		@RequestParam(value = "satellites", required = true) Integer satellites,
-    		@PageableDefault(page=0,size=1,sort="id",direction= Sort.Direction.DESC) Pageable pageable
-    		){
-    	   return repository.findMeasures(modules,satellites,pageable);
-    }
-       
+    }     
 }
