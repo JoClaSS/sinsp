@@ -43,8 +43,4 @@ public class Logs {
 	  @CreationTimestamp
 	  @Temporal(TemporalType.TIMESTAMP)
 	  private Date logtime;
-	  @ManyToOne(cascade=CascadeType.ALL)
-	  @JoinColumn(name="satellites_id")
-	  @JsonIgnore
-	  private Satellites satellite;
 }

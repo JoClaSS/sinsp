@@ -1,41 +1,11 @@
 <div class="container">
-<mat-card><h1>Console Log  </h1>
-<mat-list>
-    <mat-list-item> 
-
-        <mat-card>Satellite 1 </mat-card>
-        
-    </mat-list-item>
-    <mat-list-item> 
-        
-        <mat-card>Satellite 1 Warning</mat-card>
-
-    </mat-list-item>
-    <mat-list-item> 
-
-        <mat-card>Alert</mat-card>
-
-    </mat-list-item>
-
-    <mat-list-item> 
-
-        <mat-card>Alert</mat-card>
-
-    </mat-list-item>
-
-    <mat-list-item> 
-
-        <mat-card>Alert</mat-card>
-
-    </mat-list-item>
-
-    <mat-list-item> 
-
-        <mat-card>Alert</mat-card>
-
-    </mat-list-item>
-
+<mat-card><h1>Console Log </h1>
+<mat-list role="list">
+    <mat-list-item *ngFor = "let log of logsArray | paginate: { itemsPerPage: 7, currentPage: paginaAtual } let i = index"> <mat-card>      
+        <span>{{log.message}}</span>
+    </mat-card></mat-list-item>
 </mat-list>
+<pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
 </mat-card>
 </div>
 

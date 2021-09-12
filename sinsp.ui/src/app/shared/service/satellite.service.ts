@@ -26,4 +26,8 @@ export class SatelliteService {
   public postSatellite(newSat:Satellite): Observable<Satellite>{
     return this.httpClient.post<Satellite>(this.apiUrl,newSat,this.httpOptions);
   }
+
+  public putSatellite(newSat:Satellite): Observable<Satellite>{
+    return this.httpClient.post<Satellite>(this.apiUrl,newSat,this.httpOptions);
+  }
 }

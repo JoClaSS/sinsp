@@ -33,6 +33,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SatelliteService } from './shared/service/satellite.service';
 import {MatTableModule} from '@angular/material/table';
 import { LayoutComponent } from './layout/layout.component';
+import { ProfilesService } from './shared/service/profiles.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DialogEPS1Component } from './dashboard/dialogs/dialog-eps1/dialog-eps1.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +49,8 @@ import { LayoutComponent } from './layout/layout.component';
     ChartComponent,
     DashboardComponent,
     LinechartComponent,
-    LayoutComponent
+    LayoutComponent,
+    DialogEPS1Component
   ],
   imports: [
     BrowserModule,
@@ -70,9 +75,11 @@ import { LayoutComponent } from './layout/layout.component';
     FormsModule,
     HttpClientModule,
     MatTabsModule,
+    NgxPaginationModule,
     BrowserAnimationsModule
   ],
-  providers: [SatelliteService
+  providers: [SatelliteService,
+    ProfilesService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,21 +1,30 @@
 <div class="center">
     <h1 mat-dialog-title>Edit a satellite</h1>
+    <form class="newSat" [formGroup] = "satEditform">
+    <mat-form-field appearance="fill">
+      <mat-label >Identificador</mat-label>
+    <mat-select formControlName="id">
+      <mat-option *ngFor = "let satellite of satArray" value={{satellite.id}}>
+        {{satellite.id}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label >Name</mat-label>
-      <mat-select>
-        <mat-option *ngFor = "let satellite of satArray" value="satellite.satellite_name">
-          {{satellite.satellite_name}}
-        </mat-option>
-      </mat-select>
+        <input matInput placeholder="Alterar nome" formControlName="satellite_name">
       </mat-form-field>
       <mat-form-field appearance="fill">
       <mat-label>Responsible</mat-label>
-      <mat-select>
-        <mat-option>
-          Responsible 1
-        </mat-option>
-      </mat-select>
+      <input matInput placeholder="Identificador do responsável" formArrayName="responsible_id">
     </mat-form-field>
+    <mat-form-field class="fullWidth">
+    <mat-label>Enable</mat-label>
+    <mat-select matNativeControl required formControlName="active">
+      <mat-option value="true">Yes</mat-option>
+      <mat-option value="false">No</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
     <div mat-dialog-actions>
       <button mat-button (click)="cancel()">Cancel</button>
     </div>
@@ -23,6 +32,6 @@
       <button mat-raised-button color="warn">Delete</button>
     </div>
     <div mat-dialog-actions>
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button (click)="save()" color="primary">Save</button>
       </div>
     </div>

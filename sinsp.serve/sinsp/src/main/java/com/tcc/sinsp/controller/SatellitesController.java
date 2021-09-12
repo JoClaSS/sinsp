@@ -49,8 +49,6 @@ public class SatellitesController {
     		newSatellite = dto.transformToObject(dto);
     		newSatellite.setModules(mRep.findAll());
     		newSatellite.setResponsible(pRep.findAllById(dto.getResponsible_id()));
-    		
-    		 log.setSatellite(newSatellite);
          	  log.setMessage(
      				"Satellite " + newSatellite.getSatellite_name() + " has been created");
      	      lCon.save(log);
@@ -63,8 +61,6 @@ public class SatellitesController {
       	    newSatellite.setSatellite_name(dto.getSatellite_name());
       	    newSatellite.setActive(dto.getActive());
       	    newSatellite.setResponsible(pRep.findAllById(dto.getResponsible_id()));
-      	    
-      	  log.setSatellite(newSatellite);
      	  log.setMessage(
  				"Satellite " + newSatellite.getSatellite_name() + " has been updated");
  	      lCon.save(log);
@@ -94,7 +90,6 @@ public class SatellitesController {
 	    public void deletePost(@PathVariable Integer id) throws Exception {
 	    	Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("Delete failed"));
 	    	Logs log = new Logs();
-	    	 log.setSatellite(satellite);
 	     	  log.setMessage(
 	 				"Satellite " + satellite.getSatellite_name() + " has been deleted");
 	 	      lCon.save(log);

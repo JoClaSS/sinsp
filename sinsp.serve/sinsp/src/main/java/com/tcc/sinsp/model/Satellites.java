@@ -4,18 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+
 
 import javax.persistence.Column;
 
@@ -34,9 +37,14 @@ public class Satellites {
 	  @Column(name="satellite_name", nullable=false)
 	  private String satellite_name;
 	  @ManyToMany
-	  @JsonProperty("List")
+	  @JoinTable(name="satellites_responsible",
+      joinColumns=@JoinColumn(name="satellites_id"),
+      inverseJoinColumns=@JoinColumn(name="responsible_id"))
 	  private List<Profiles> responsible;
 	  @ManyToMany
+	  @JoinTable(name="satellites_modules",
+      joinColumns=@JoinColumn(name="satellites_id"),
+      inverseJoinColumns=@JoinColumn(name="modules_id"))
 	  @JsonIgnore
 	  private List<Modules> modules;
 }

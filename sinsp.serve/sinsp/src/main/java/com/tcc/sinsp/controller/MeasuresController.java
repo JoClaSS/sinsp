@@ -65,7 +65,6 @@ public class MeasuresController {
     			.orElseThrow(() -> new Exception("Satellite not found")));
     	
     	if(measure.getSample() > 5 || measure.getSample() < 2 ) { //log
-    		log.setSatellite(measure.getSatellite());
     		log.setMessage(
     				"Satellite " + satellite.getSatellite_name() + 
     				" module" + module.getModulename() + " " + module.getModuledescription() +

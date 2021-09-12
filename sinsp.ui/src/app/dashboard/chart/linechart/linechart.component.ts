@@ -1,6 +1,9 @@
+import { getLocaleDayPeriods } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import {  Color, Label } from 'ng2-charts';
+import { Measures } from 'src/app/shared/model/measures.model';
+import { MeasuresService } from 'src/app/shared/service/measures.service';
 
 @Component({
   selector: 'app-linechart',
@@ -8,8 +11,26 @@ import {  Color, Label } from 'ng2-charts';
   styleUrls: ['./linechart.component.css']
 })
 export class LinechartComponent implements OnInit {
- dataArray = [3, 3, 3.5, 4, 4, 4, 4, 3.5, 4, 4.5, 5, 4.4, 4, 4, 3.5, 4,4, 4, 4,5];
- dataGain:any = this.dataArray.map(x => x * 1);
+  measuresArray: Measures[] = []
+  meany: any = [];
+  measures!: Measures
+  dataArray!: number[] 
+  constructor(public serviceMea: MeasuresService,
+    ) {}
+
+  showMeasures(){
+    this.serviceMea.getMeasures()
+    .subscribe(dados  => {
+     this.measuresArray = dados;
+     console.log(this.meany);
+     });
+  }
+
+
+  ngOnInit(): void {
+    this.showMeasures();
+  }
+  
   ChartOptions: ChartOptions = {
     title:{
       text:'DATA Output - Output 6',
@@ -37,23 +58,19 @@ export class LinechartComponent implements OnInit {
       ],
      }
   };
-  ChartLabels: Label[] = ['1', '2', '3', '4', '5', '6','7','8','9','10', '11', '12', '13', '14', '15', '16','17','18','19','20'];
+  ChartLabels: Label[] = ['1', '2', '3', '4', '5'];
   ChartType: ChartType = 'line';
   ChartLegend = true;
   ChartPlugins = [];
 
   ChartData: ChartDataSets[] = [
-    { data: this.dataGain, label: 'Voltage', fill: false }
+    { data: this.dataArray, label: 'Voltage', fill: false }
   ];
   
   ChartColors: Color[] = [
     {
       borderColor: 'green'
     }];
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 
 
