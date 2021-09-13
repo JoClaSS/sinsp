@@ -4,6 +4,7 @@ import { DialogNewsatComponent } from './dialog-newsat/dialog-newsat.component';
 import { DialogEditsatComponent } from './dialog-editsat/dialog-editsat.component';
 import { Satellite } from 'src/app/shared/model/satellite.model';
 import { SatelliteService } from 'src/app/shared/service/satellite.service';
+import { ProfilesService } from '../shared/service/profiles.service';
 
 
 @Component({
@@ -13,18 +14,19 @@ import { SatelliteService } from 'src/app/shared/service/satellite.service';
 })
 export class SettingspageComponent implements OnInit {
   satArray: Satellite[] = [];
-  displayedColumns: string[] = ['id', 'name', 'active'];
+  displayedColumns: string[] = ['id', 'name', 'active','responsible'];
   constructor(public dialog: MatDialog,
-              public service: SatelliteService
+              public service: SatelliteService,
+              public servicepro: ProfilesService
     ){}
   ngOnInit(): void {
     this.showSatellite();
   }
 
   showSatellite(){
-    this.service.getSatelliteArray().subscribe(dados=> {
+    this.service.getSatelliteArray().subscribe((dados:Satellite[])=> {
       this.satArray = dados;
-      console.log(dados);
+      console.log(dados[0].responsible);
     })
   }
 

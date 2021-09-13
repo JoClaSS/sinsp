@@ -28,7 +28,7 @@ export class DialogNewsatComponent implements OnInit {
 
   save(): void {
     const formValue = this.satForm.value;
-    console.log(formValue);
+    console.table(formValue);
     this.service.postSatellite(formValue).subscribe(data => {
     this.satellites.push(data);})
     this.dialogRef.close();
@@ -40,7 +40,7 @@ export class DialogNewsatComponent implements OnInit {
     this.satForm = this.fb.group({
       satellite_name: ['', [Validators.required]],
       active: ['false', [Validators.required]],
-      responsible_id: this.fb.array ([''
+      responsible: this.fb.array (['1'
        ])
     });
   }

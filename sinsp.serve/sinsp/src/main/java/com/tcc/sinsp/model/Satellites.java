@@ -1,6 +1,7 @@
 package com.tcc.sinsp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
 @NoArgsConstructor
@@ -36,12 +37,14 @@ public class Satellites {
 	  private Boolean active;
 	  @Column(name="satellite_name", nullable=false)
 	  private String satellite_name;
-	  @ManyToMany
+	  @ManyToMany(fetch = FetchType.LAZY,
+		        cascade ={CascadeType.REMOVE})
 	  @JoinTable(name="satellites_responsible",
       joinColumns=@JoinColumn(name="satellites_id"),
       inverseJoinColumns=@JoinColumn(name="responsible_id"))
 	  private List<Profiles> responsible;
-	  @ManyToMany
+	  @ManyToMany(fetch = FetchType.LAZY,
+		        cascade ={CascadeType.REMOVE})
 	  @JoinTable(name="satellites_modules",
       joinColumns=@JoinColumn(name="satellites_id"),
       inverseJoinColumns=@JoinColumn(name="modules_id"))

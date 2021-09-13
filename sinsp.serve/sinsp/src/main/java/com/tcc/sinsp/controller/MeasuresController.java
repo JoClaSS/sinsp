@@ -79,11 +79,11 @@ public class MeasuresController {
     	return repository.findAll();
     }
     
+    
     @GetMapping("/sample")
     public Page<Measures> getOrganizedMeasure(
     		@RequestParam(value = "modules", required = true) Integer modules,
     		@RequestParam(value = "satellites", required = true) Integer satellites,
-    		@RequestParam(value = "size", required = true) Page size,
     		@PageableDefault(page=0,size=100,sort="id",direction= Sort.Direction.DESC) Pageable pageable
     		){
     	   return repository.findMeasures(modules,satellites,pageable);

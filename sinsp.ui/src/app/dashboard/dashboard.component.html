@@ -4,7 +4,7 @@
         <mat-grid-list cols="3" rowHeight="1:1">
             <mat-grid-tile> 
               <app-linechart></app-linechart>
-              <div class="button">
+              <div class="button" (click)="openDialog()">
               <button mat-icon-button>
                     <mat-icon>more_vert</mat-icon>
               </button>
@@ -12,12 +12,10 @@
             </mat-grid-tile>
     
             <mat-grid-tile>
-                <app-linechart></app-linechart>
-              <div class="button">
-              <button mat-icon-button>
-                    <mat-icon>more_vert</mat-icon>
-              </button>
-            </div>
+                <mat-icon color="primary">offline_bolt</mat-icon>
+              <div class="button" >
+              <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+              </div>
             </mat-grid-tile>
     
             <mat-grid-tile>

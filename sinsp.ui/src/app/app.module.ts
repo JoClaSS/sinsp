@@ -36,6 +36,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { ProfilesService } from './shared/service/profiles.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DialogEPS1Component } from './dashboard/dialogs/dialog-eps1/dialog-eps1.component';
+import { ResponsibleComponent } from './responsible/responsible.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { DialogEPS1Component } from './dashboard/dialogs/dialog-eps1/dialog-eps1
     DashboardComponent,
     LinechartComponent,
     LayoutComponent,
-    DialogEPS1Component
+    DialogEPS1Component,
+    ResponsibleComponent
   ],
   imports: [
     BrowserModule,

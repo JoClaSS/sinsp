@@ -88,11 +88,8 @@ public class SatellitesController {
 	    @DeleteMapping(value = "{id}")
 	    @ResponseStatus(HttpStatus.NO_CONTENT)
 	    public void deletePost(@PathVariable Integer id) throws Exception {
+	    	
 	    	Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("Delete failed"));
-	    	Logs log = new Logs();
-	     	  log.setMessage(
-	 				"Satellite " + satellite.getSatellite_name() + " has been deleted");
-	 	      lCon.save(log);
 	    	 repository.delete(satellite);
 	    }
 	    
