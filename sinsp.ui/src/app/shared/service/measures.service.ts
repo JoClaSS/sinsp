@@ -17,8 +17,7 @@ export class MeasuresService {
   };
 
   constructor(
-     private httpClient: HttpClient,
-     private _zone: NgZone
+     private httpClient: HttpClient
   ) { }
 
   public getMeasures(): Observable<any>{

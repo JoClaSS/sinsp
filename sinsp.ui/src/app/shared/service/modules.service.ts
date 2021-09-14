@@ -11,6 +11,7 @@ export class ModulesService {
 
   apiUrl = 'http://localhost:8080/modules';
   EPSchart = 'http://localhost:8080/modules/dialog?module=EPS&mclass=sensor';
+  findModule = 'http://localhost:8080/modules/findModule?description=';
   constructor(
     private httpClient: HttpClient
  ) { }
@@ -23,4 +24,9 @@ export class ModulesService {
  public getEPSModules(){
   return this.httpClient.get<Modules[]>(this.EPSchart);
 }
+
+public getOneModule(description:string){
+  return this.httpClient.get<any>(this.findModule+description);
+}
+
 }

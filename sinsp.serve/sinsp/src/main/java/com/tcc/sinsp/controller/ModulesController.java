@@ -44,6 +44,13 @@ public class ModulesController {
     		){
     	return mRep.findModulesByclass(module, mclass);
     }
+    
+    @GetMapping("/findModule")
+    public List<Modules> getOneModule(
+    		@RequestParam(value = "description", required = true) String description
+    		){
+    	return mRep.findModulesByDescription(description);
+    }
 
 
 }

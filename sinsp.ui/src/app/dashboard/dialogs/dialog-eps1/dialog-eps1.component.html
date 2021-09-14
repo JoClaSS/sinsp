@@ -4,7 +4,7 @@
     <mat-form-field appearance="fill">
       <mat-label >EPS description</mat-label>
     <mat-select formControlName="moduledescription" >
-      <mat-option *ngFor = "let module of modArray" value={{module.moduledescription}}>
+      <mat-option *ngFor = "let module of modArray" value="{{module.moduledescription}}" >
         {{module.moduledescription}}
       </mat-option>
     </mat-select>
@@ -12,7 +12,7 @@
     <mat-form-field appearance="fill">
         <mat-label >Satellite name</mat-label>
       <mat-select formControlName="satellite_name">
-        <mat-option *ngFor = "let satellite of satArray" value={{satellite.satellite_name}}>
+        <mat-option *ngFor = "let satellite of satArray" value="{{satellite.satellite_name}}">
           {{satellite.satellite_name}}
         </mat-option>
       </mat-select>

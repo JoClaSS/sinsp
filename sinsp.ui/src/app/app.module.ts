@@ -37,6 +37,7 @@ import { ProfilesService } from './shared/service/profiles.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DialogEPS1Component } from './dashboard/dialogs/dialog-eps1/dialog-eps1.component';
 import { ResponsibleComponent } from './responsible/responsible.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { ResponsibleComponent } from './responsible/responsible.component';
     HttpClientModule,
     MatTabsModule,
     NgxPaginationModule,
+    MatExpansionModule,
     BrowserAnimationsModule
   ],
   providers: [SatelliteService,

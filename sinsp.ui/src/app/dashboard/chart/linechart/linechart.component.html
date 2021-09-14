@@ -1,4 +1,101 @@
-<div style="display: block; width: 1100px; height: 500px;">
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon> add </mat-icon>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+      <h3 mat-dialog-title>Chart</h3>
+      <form [formGroup] = "chartEpsForm" (ngSubmit)="Submit()">
+        <mat-form-field appearance="fill">
+          <mat-label >EPS description</mat-label>
+        <mat-select formControlName="moduledescription" >
+          <mat-option *ngFor = "let module of modArray" value="{{module.moduledescription}}" >
+            {{module.moduledescription}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label >Satellite name</mat-label>
+          <mat-select formControlName="satellite_name">
+            <mat-option *ngFor = "let satellite of satArray" value="{{satellite.satellite_name}}">
+              {{satellite.satellite_name}}
+            </mat-option>
+          </mat-select>
+          </mat-form-field>
+        <mat-form-field class="fullWidth"  appearance="fill">
+        <mat-label>Paginator</mat-label>
+        <mat-select formControlName="pagination">
+          <mat-option value="100">100</mat-option>
+          <mat-option value="500">500</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button>submit</button>
+    </form>
+<!--
+    <h3 mat-dialog-title>Number</h3>
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label >EPS description</mat-label>
+      <mat-select formControlName="moduledescription" >
+        <mat-option *ngFor = "let module of modArray" value="{{module.moduledescription}}" >
+          {{module.moduledescription}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label >Satellite name</mat-label>
+        <mat-select formControlName="satellite_name">
+          <mat-option *ngFor = "let satellite of satArray" value="{{satellite.satellite_name}}">
+            {{satellite.satellite_name}}
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
+      <mat-form-field class="fullWidth"  appearance="fill">
+      <mat-label>Paginator</mat-label>
+      <mat-select>
+        <mat-option value="true">100</mat-option>
+        <mat-option value="false">500</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button>submit</button>
+  </form>
+
+ 
+
+  <h3 mat-dialog-title>Boolean</h3>
+  <form class="boolean">
+    <mat-form-field appearance="fill">
+      <mat-label >EPS description</mat-label>
+    <mat-select formControlName="moduledescription" >
+      <mat-option *ngFor = "let module of modArray" value="{{module.moduledescription}}" >
+        {{module.moduledescription}}
+      </mat-option>
+    </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label >Satellite name</mat-label>
+      <mat-select formControlName="satellite_name">
+        <mat-option *ngFor = "let satellite of satArray" value="{{satellite.satellite_name}}">
+          {{satellite.satellite_name}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+    <mat-form-field class="fullWidth"  appearance="fill">
+    <mat-label>Paginator</mat-label>
+    <mat-select>
+      <mat-option value="true">100</mat-option>
+      <mat-option value="false">500</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button>submit</button>
+</form>
+-->
+    </mat-expansion-panel>
+<div class="row1" style="display: block; width: 1100px; height: 500px;">
     <canvas baseChart
     [datasets]="ChartData"
     [labels]="ChartLabels"
@@ -9,4 +106,5 @@
     [colors] ="ChartColors"
     >
   </canvas>
-</div>
+ </div>
+

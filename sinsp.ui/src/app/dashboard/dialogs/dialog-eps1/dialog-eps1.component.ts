@@ -16,8 +16,6 @@ export class DialogEPS1Component implements OnInit {
   public chartEpsForm!:FormGroup
   satArray: Satellite[] = [];
   modArray: Modules[] = [];
-  sendTochart:any;
-  //@Output() Event: EventEmitter<string> = new EventEmitter();
   constructor(public dialogRefEPS1: MatDialogRef<DialogEPS1Component>,
                   private fb: FormBuilder,
                   public servicesat: SatelliteService,
