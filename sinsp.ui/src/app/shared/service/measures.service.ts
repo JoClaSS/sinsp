@@ -9,6 +9,7 @@ import { Measures } from '../model/measures.model';
 export class MeasuresService {
 
   apiUrl = 'http://localhost:8080/measures';
+  EPSchart = 'http://localhost:8080/measures/chart';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -24,22 +25,13 @@ export class MeasuresService {
     return this.httpClient.get<Measures>(this.apiUrl);
    }
 
-   getServerSentEvent(): Observable<any> {
-    return new Observable(observer => {
-      const eventSource = this.getEventSource(this.apiUrl);
-      eventSource.onmessage = event => {
-        this._zone.run(() => {
-          observer.next(event);
-        });
-      };
-      eventSource.onerror = error => {
-        this._zone.run(() => {
-          observer.error(error);
-        });
-      };
-    });
-  }
-  private getEventSource(url: string): EventSource {
-    return new EventSource(url);
-  }
+   public getChart(description:string,satellite:string): Observable<any>{
+    return this.httpClient.get<Measures>(this.EPSchart+
+        '?module=EPS'+ 
+        '&description=' + description + 
+        '&satellite=' + satellite);
+   }
+
+   
+
 }

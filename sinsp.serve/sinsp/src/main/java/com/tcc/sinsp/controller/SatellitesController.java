@@ -44,7 +44,6 @@ public class SatellitesController {
     public Satellites save(@RequestBody SatellitesProfileDTO dto) throws Exception {
     	Satellites newSatellite;
     	Logs log = new Logs();
-    	
     	if(dto.getId() == null) {
     		newSatellite = dto.transformToObject(dto);
     		newSatellite.setModules(mRep.findAll());
@@ -79,6 +78,10 @@ public class SatellitesController {
 	    	return repository.findById(id);
 	    }
 	    
+	    @GetMapping("/active")
+	    public List<Satellites> getActive(){
+	    	return repository.findActive(true);
+	    }
 	    
 	    @GetMapping("/search")
 	    public Optional<Satellites> getByName(@RequestParam String name){
@@ -90,6 +93,10 @@ public class SatellitesController {
 	    public void deletePost(@PathVariable Integer id) throws Exception {
 	    	
 	    	Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("Delete failed"));
+	    	Logs log = new Logs();
+	     	  log.setMessage(
+	 				"Satellite " + satellite.getSatellite_name() + " has been deleted");
+	 	      lCon.save(log);
 	    	 repository.delete(satellite);
 	    }
 	    

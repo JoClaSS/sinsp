@@ -9,6 +9,7 @@ import { Satellite } from '../model/satellite.model';
 export class SatelliteService {
 
   apiUrl = 'http://localhost:8080/satellites';
+  satActive = 'http://localhost:8080/satellites/active';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -23,11 +24,11 @@ export class SatelliteService {
     return this.httpClient.get<Satellite[]>(this.apiUrl);
   }
 
-  public postSatellite(newSat:Satellite): Observable<Satellite>{
-    return this.httpClient.post<Satellite>(this.apiUrl,newSat,this.httpOptions);
+  public getSatelliteActiveArray(){
+    return this.httpClient.get<Satellite[]>(this.satActive);
   }
 
-  public putSatellite(newSat:Satellite): Observable<Satellite>{
+  public postSatellite(newSat:Satellite): Observable<Satellite>{
     return this.httpClient.post<Satellite>(this.apiUrl,newSat,this.httpOptions);
   }
 }

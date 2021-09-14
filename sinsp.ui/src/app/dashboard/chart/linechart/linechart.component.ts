@@ -1,10 +1,12 @@
 import { getLocaleDayPeriods } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import {  Color, Label } from 'ng2-charts';
 import { Measures } from 'src/app/shared/model/measures.model';
 import { MeasuresService } from 'src/app/shared/service/measures.service';
 import { map } from 'rxjs/operators'
+import { Satellite } from 'src/app/shared/model/satellite.model';
+import { Modules } from 'src/app/shared/model/modules.model';
 
 @Component({
   selector: 'app-linechart',
@@ -16,25 +18,48 @@ export class LinechartComponent implements OnInit {
   meany!: any;
   measures!: Measures
   dataArray: number[] = [] ;
+  label: string[] = [];
+
+  @Input() satArray:Satellite[] = [];
+  @Input() modArray:Modules[] = [];
   constructor(public serviceMea: MeasuresService,
     ) {}
 
+    ngOnInit(): void {
+      this.showTochart();
+    }
+
   showMeasures(){
       this.serviceMea.getMeasures()
-    //.pipe(map(s=> {return s.sample}))
     .subscribe(event => {
       let result = event.map((s:any)=> {return s.sample})
+      let label = event.map((s:any)=> {return s.sample_time})
       this.dataArray = result
-      console.log(result);
+      this.label = label
+      console.log(this.label);
       this.ChartData = [
-        { data: this.dataArray, label: 'Voltage', fill: false }
+        {data: this.dataArray, label: 'Voltage', fill: false }
       ];
+      this.ChartLabels = this.label;
     });
   }
 
-  ngOnInit(): void {
-    this.showMeasures();
-  }
+
+  showTochart(){
+    this.serviceMea.getChart('Solar Panel X axis voltage','PostTest')
+  .subscribe(event => {
+    let result = event.map((s:any)=> {return s.sample})
+    let label = event.map((s:any)=> {return s.sample_time})
+    this.dataArray = result
+    this.label = label
+    console.log(this.label);
+    this.ChartData = [
+      {data: this.dataArray, label: 'Voltage', fill: false }
+    ];
+    this.ChartLabels = this.label;
+  });
+}
+
   
   ChartOptions: ChartOptions = {
     title:{
@@ -55,6 +80,9 @@ export class LinechartComponent implements OnInit {
       ],
       xAxes: [
        {
+        ticks: {
+          fontSize: 6
+      },
         scaleLabel: {
          display: false,
          labelString: "Time",
@@ -63,7 +91,7 @@ export class LinechartComponent implements OnInit {
       ],
      }
   };
-  ChartLabels: Label[] = [];
+  ChartLabels: Label[] = this.label;
   ChartType: ChartType = 'line';
   ChartLegend = true;
   ChartPlugins = [];
@@ -80,35 +108,3 @@ export class LinechartComponent implements OnInit {
 
 
 }
-function sample(sample: any) {
-  throw new Error('Function not implemented.');
-}
-
-/*
-showMeasures(){
-  this.serviceMea.getServerSentEvent()
-.subscribe(event => {
-  let sample = JSON.parse(event.sample);
-  this.pushEventToChartData(sample);
-});
-}
-
-private pushEventToChartData(event: Measures) {
-  if (this.isChartDataFull(this.ChartData, 20)) {
-    this.removeLastElementFromChartDataAndLabel();
-  }
-  this.ChartData[0].data!.push(event.sample);
-  this.ChartLabels.push(
-    this.getLabel(event)
-  );}
-
-  private getLabel(event: Measures): string {
-    return `${event.message}`;
-  }
-  private removeLastElementFromChartDataAndLabel(): void {
-    this.ChartData[0].data = this.ChartData[0].data!.slice(1);
-    this.ChartLabels = this.ChartLabels.slice(1);
-  }
-  private isChartDataFull(chartData: ChartDataSets[], limit: number): boolean {
-    return chartData[0].data!.length >= limit;
-  } */

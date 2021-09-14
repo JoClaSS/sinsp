@@ -1,6 +1,7 @@
 package com.tcc.sinsp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,8 +51,13 @@ public class MeasuresController {
     	Modules module = new Modules();
     	Satellites satellite = new Satellites();
     	Logs log = new Logs();
+    	
     	satellite = (sRep.findById(dto.getSatellites_id())
     			.orElseThrow(() -> new Exception("Satellite not found")));
+    	
+    	if(satellite.getActive() == false) {
+    		return null;
+    	}
     	
         module = (mRep.findById(dto.getModules_id())
         		.orElseThrow(() -> new Exception("Module doesn't exist")));
@@ -67,7 +73,7 @@ public class MeasuresController {
     	if(measure.getSample() > 5 || measure.getSample() < 2 ) { //log
     		log.setMessage(
     				"Satellite " + satellite.getSatellite_name() + 
-    				" module" + module.getModulename() + " " + module.getModuledescription() +
+    				" module " + module.getModulename() + " " + module.getModuledescription() +
     				" get a weird sample " + measure.getSample());
     	    lcon.save(log);
     	}
@@ -80,7 +86,7 @@ public class MeasuresController {
     }
     
     
-    @GetMapping("/sample")
+    @GetMapping("/disactivated")
     public Page<Measures> getOrganizedMeasure(
     		@RequestParam(value = "modules", required = true) Integer modules,
     		@RequestParam(value = "satellites", required = true) Integer satellites,
@@ -88,4 +94,20 @@ public class MeasuresController {
     		){
     	   return repository.findMeasures(modules,satellites,pageable);
     }     
+    
+    @GetMapping("/chart")
+    public List<Measures> getOrganizedMeasureEPS(
+    		@RequestParam(value = "module", required = true) String modules,
+    		@RequestParam(value = "description", required = true) String description,
+    		@RequestParam(value = "satellite", required = true) String satellites
+    		) throws Exception {
+    	     Modules module = new Modules();
+    	     Satellites satellite = new Satellites();
+    	     satellite = sRep.findByName(satellites)
+    	    		 .orElseThrow(() -> new Exception("Satellite doesn't exist"));
+    	     module = mRep.findModules(modules, null, null, null, null, null, null, null, description)
+    	    		 .orElseThrow(() -> new Exception("Module doesn't exist"));
+    	   return repository.findMeasuresByString(module.getId(),satellite.getId());
+    }  
+    
 }

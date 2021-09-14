@@ -1,6 +1,7 @@
 package com.tcc.sinsp.repository;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,5 +18,13 @@ public interface SatellitesRepository extends JpaRepository<Satellites,Integer>{
 			  )
 	  Optional<Satellites> findByName(
 			  @Param("satellite_name") String satellite_name
+			  );  
+	  
+	  
+	  @Query(value = "select * from satellites s where s.active =:active"
+			  , nativeQuery = true
+			  )
+	  List<Satellites> findActive(
+			  @Param("active") Boolean active
 			  );  
 }

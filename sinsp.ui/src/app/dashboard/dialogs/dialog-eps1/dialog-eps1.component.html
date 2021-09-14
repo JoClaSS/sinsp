@@ -1,23 +1,23 @@
 <div class="center">
     <h1 mat-dialog-title>Dashboard</h1>
-    <form class="dashboard">
+    <form class="dashboard" [formGroup] = "chartEpsForm">
     <mat-form-field appearance="fill">
       <mat-label >EPS description</mat-label>
-    <mat-select>
-      <mat-option>
-        wjgwjg
+    <mat-select formControlName="moduledescription" >
+      <mat-option *ngFor = "let module of modArray" value={{module.moduledescription}}>
+        {{module.moduledescription}}
       </mat-option>
     </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label >Satellite name</mat-label>
-      <mat-select>
-        <mat-option>
-          scmbm 
+      <mat-select formControlName="satellite_name">
+        <mat-option *ngFor = "let satellite of satArray" value={{satellite.satellite_name}}>
+          {{satellite.satellite_name}}
         </mat-option>
       </mat-select>
       </mat-form-field>
-    <mat-form-field class="fullWidth">
+    <mat-form-field class="fullWidth"  appearance="fill">
     <mat-label>Paginator</mat-label>
     <mat-select>
       <mat-option value="true">100</mat-option>
@@ -29,6 +29,6 @@
       <button mat-button (click)="cancel()">Cancel</button>
     </div>
     <div mat-dialog-actions>
-        <button mat-raised-button color="primary">Find</button>
+        <button mat-raised-button color="primary">Check</button>
       </div>
     </div>
