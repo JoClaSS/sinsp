@@ -9,6 +9,7 @@ import { Modules } from 'src/app/shared/model/modules.model';
 import { SatelliteService } from 'src/app/shared/service/satellite.service';
 import { ModulesService } from 'src/app/shared/service/modules.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResponsePageable } from 'src/app/shared/model/ResponsePageable.model';
 
 @Component({
   selector: 'app-linechart',
@@ -26,6 +27,8 @@ export class LinechartComponent implements OnInit {
   dimen!:string
   measureType!:string;
   dataArray: number[] = [] ;
+  pageArray: number[] = [] ;
+  labelArray:string[] = [];
   title!:string;
   label: string[] = [];
   satArray: Satellite[] = [];
@@ -95,9 +98,20 @@ Submit(){
   this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
     let result = event.map((s:any)=> {return s.sample})  //Eixo Y
     let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
-    this.dataArray = result
-    this.label = label
-   console.log(event);
+    let size = result.length;
+    let count = 0;
+    if(size>formValue.pagination){
+      size = size - formValue.pagination;
+    while(count!= formValue.pagination){
+      this.pageArray[count] = result[size]
+      this.labelArray[count] = label[size]
+      size++
+      count++
+    }
+  }
+    this.dataArray = this.pageArray
+    this.label = this.labelArray
+   console.log(this.pageArray);
     this.ChartData = [
       {data: this.dataArray, label: this.measureType, fill: false }
     ];
@@ -174,6 +188,15 @@ Submit3(){
   });
 }
 
+MeaArray:Measures[] = []
+SubmitPage(){
+  const formValue = this.chartEpsForm.value;
+  console.log(formValue)
+  this.serviceMea.getChartPage(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
+    this.MeaArray = event.content
+   console.log(this.MeaArray);
+  })
+}
 //Formulários 
 
 Form(){

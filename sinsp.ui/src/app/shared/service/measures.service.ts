@@ -12,7 +12,8 @@ import { ResponsePageable } from '../model/ResponsePageable.model';
 export class MeasuresService {
 
   apiUrl = 'http://localhost:8080/measures';
-  EPSchart = 'http://localhost:8080/measures/page100';
+  EPSchart = 'http://localhost:8080/measures/chart';
+  EPSchartPage = 'http://localhost:8080/measures/Page100';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -34,6 +35,12 @@ export class MeasuresService {
         '&satellite=' + satellite);
    }
 
+   public getChartPage(description:string,satellite:string): Observable<ResponsePageable>{
+    return this.httpClient.get<any>(this.EPSchart+
+        '?module=EPS'+ 
+        '&description=' + description + 
+        '&satellite=' + satellite);
+   }
    
 
 }
