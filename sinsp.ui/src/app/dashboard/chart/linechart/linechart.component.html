@@ -35,13 +35,13 @@
       </mat-form-field>
       <button mat-raised-button>submit</button>
     </form>
-<!--
+
     <h3 mat-dialog-title>Number</h3>
-    <form>
+    <form [formGroup] = "NumberEpsForm" (ngSubmit)="Submit2()" >
       <mat-form-field appearance="fill">
         <mat-label >EPS description</mat-label>
-      <mat-select formControlName="moduledescription" >
-        <mat-option *ngFor = "let module of modArray" value="{{module.moduledescription}}" >
+      <mat-select formControlName="moduledescription">
+        <mat-option *ngFor = "let module of modArrayNumber" value="{{module.moduledescription}}" >
           {{module.moduledescription}}
         </mat-option>
       </mat-select>
@@ -54,24 +54,17 @@
           </mat-option>
         </mat-select>
         </mat-form-field>
-      <mat-form-field class="fullWidth"  appearance="fill">
-      <mat-label>Paginator</mat-label>
-      <mat-select>
-        <mat-option value="true">100</mat-option>
-        <mat-option value="false">500</mat-option>
-      </mat-select>
-    </mat-form-field>
     <button mat-raised-button>submit</button>
   </form>
 
- 
+
 
   <h3 mat-dialog-title>Boolean</h3>
-  <form class="boolean">
+  <form [formGroup] = "BoolEpsForm" (ngSubmit)="Submit3()">
     <mat-form-field appearance="fill">
-      <mat-label >EPS description</mat-label>
-    <mat-select formControlName="moduledescription" >
-      <mat-option *ngFor = "let module of modArray" value="{{module.moduledescription}}" >
+      <mat-label  >EPS description</mat-label>
+    <mat-select formControlName="moduledescription">
+      <mat-option *ngFor = "let module of modArrayStatus" value="{{module.moduledescription}}" >
         {{module.moduledescription}}
       </mat-option>
     </mat-select>
@@ -84,17 +77,12 @@
         </mat-option>
       </mat-select>
       </mat-form-field>
-    <mat-form-field class="fullWidth"  appearance="fill">
-    <mat-label>Paginator</mat-label>
-    <mat-select>
-      <mat-option value="true">100</mat-option>
-      <mat-option value="false">500</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button>submit</button>
+  <button mat-raised-button>submit</button>
 </form>
--->
     </mat-expansion-panel>
+
+  <!--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-->
+
 <div class="row1" style="display: block; width: 1100px; height: 500px;">
     <canvas baseChart
     [datasets]="ChartData"
@@ -108,3 +96,14 @@
   </canvas>
  </div>
 
+ <div class="row2">
+  <p style="font-family: 'Gill Sans';">{{titleNumber}}</p>
+   <span>{{dataNumber}}</span>
+</div>
+
+
+<div class="row3">
+  <p style="font-family: 'Gill Sans';">{{titleStatus}}</p>
+  <mat-icon [style.color]="dataStatus ? 'blue':'red'" >offline_bolt</mat-icon>
+ </div>
+ 

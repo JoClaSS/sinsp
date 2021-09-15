@@ -11,6 +11,8 @@ export class ModulesService {
 
   apiUrl = 'http://localhost:8080/modules';
   EPSchart = 'http://localhost:8080/modules/dialog?module=EPS&mclass=sensor';
+  EPSstatus = 'http://localhost:8080/modules/dialog?module=EPS&mclass=status';
+  EPSnumber = 'http://localhost:8080/modules/dialogNot?module=EPS';
   findModule = 'http://localhost:8080/modules/findModule?description=';
   constructor(
     private httpClient: HttpClient
@@ -21,8 +23,17 @@ export class ModulesService {
  }
 
 
- public getEPSModules(){
+ public getEPSsensor(){
   return this.httpClient.get<Modules[]>(this.EPSchart);
+}
+
+public getEPSstatus(){
+  return this.httpClient.get<Modules[]>(this.EPSstatus);
+}
+
+
+public getEPSnumber(){
+  return this.httpClient.get<Modules[]>(this.EPSnumber);
 }
 
 public getOneModule(description:string){

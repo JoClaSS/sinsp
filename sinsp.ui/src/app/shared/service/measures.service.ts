@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable,NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Measures } from '../model/measures.model';
+import { ResponsePageable } from '../model/ResponsePageable.model';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,7 @@ import { Measures } from '../model/measures.model';
 export class MeasuresService {
 
   apiUrl = 'http://localhost:8080/measures';
-  EPSchart = 'http://localhost:8080/measures/chart';
+  EPSchart = 'http://localhost:8080/measures/page100';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -25,7 +28,7 @@ export class MeasuresService {
    }
 
    public getChart(description:string,satellite:string): Observable<any>{
-    return this.httpClient.get<Measures>(this.EPSchart+
+    return this.httpClient.get<any>(this.EPSchart+
         '?module=EPS'+ 
         '&description=' + description + 
         '&satellite=' + satellite);

@@ -40,7 +40,7 @@ export class DialogEPS1Component implements OnInit {
   }
 
   showModules(){
-    this.servicemod.getEPSModules().subscribe(dados=> {
+    this.servicemod.getEPSsensor().subscribe(dados=> {
       this.modArray = dados;
       console.log(dados);
     }) 

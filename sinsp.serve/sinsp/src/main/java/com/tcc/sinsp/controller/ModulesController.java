@@ -45,6 +45,13 @@ public class ModulesController {
     	return mRep.findModulesByclass(module, mclass);
     }
     
+    @GetMapping("/dialogNot")
+    public List<Modules> getModulesByParamsNOT(
+    		@RequestParam(value = "module", required = true) String module // EPS,OBC,SP1 ETC.
+    		){
+    	return mRep.findModulesByclassNot(module,"status");
+    }
+    
     @GetMapping("/findModule")
     public List<Modules> getOneModule(
     		@RequestParam(value = "description", required = true) String description

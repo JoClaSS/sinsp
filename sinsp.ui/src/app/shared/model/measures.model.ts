@@ -2,7 +2,7 @@ export interface Measures{
     id: number;
     sample: number;
     message: string; 
-    status_report: boolean; 
+    status: boolean; 
     sample_time: string; 
     satellites_id: string; 
     modules_id: string; 

@@ -52,6 +52,7 @@ public class MeasuresController {
     	Satellites satellite = new Satellites();
     	Logs log = new Logs();
     	
+    	
     	satellite = (sRep.findById(dto.getSatellites_id())
     			.orElseThrow(() -> new Exception("Satellite not found")));
     	
@@ -61,9 +62,8 @@ public class MeasuresController {
     	
         module = (mRep.findById(dto.getModules_id())
         		.orElseThrow(() -> new Exception("Module doesn't exist")));
-        
+        if(dto.getSample() == null) { dto.setSample(3);}
         measure.setSample(dto.getSample()*module.getFormulation());
-    	
         measure.setModule(mRep.findById(dto.getModules_id())
     			.orElseThrow(() -> new Exception("Module doesn't exist")));
     	
@@ -86,13 +86,20 @@ public class MeasuresController {
     }
     
     
-    @GetMapping("/disactivated")
+    @GetMapping("/page100")
     public Page<Measures> getOrganizedMeasure(
-    		@RequestParam(value = "modules", required = true) Integer modules,
-    		@RequestParam(value = "satellites", required = true) Integer satellites,
+    		@RequestParam(value = "modules", required = true) String modules,
+    		@RequestParam(value = "description", required = true) String description,
+    		@RequestParam(value = "satellites", required = true) String satellites,
     		@PageableDefault(page=0,size=100,sort="id",direction= Sort.Direction.DESC) Pageable pageable
-    		){
-    	   return repository.findMeasures(modules,satellites,pageable);
+    		)throws Exception {
+    	 Modules module = new Modules();
+	     Satellites satellite = new Satellites();
+	     satellite = sRep.findByName(satellites)
+	    		 .orElseThrow(() -> new Exception("Satellite doesn't exist"));
+	     module = mRep.findModules(modules, null, null, null, null, null, null, null, description)
+	    		 .orElseThrow(() -> new Exception("Module doesn't exist"));
+    	   return repository.findMeasuresPage(module.getId(),satellite.getId(),pageable);
     }     
     
     @GetMapping("/chart")

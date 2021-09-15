@@ -17,6 +17,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LinechartComponent implements OnInit {
   public chartEpsForm!:FormGroup
+  public NumberEpsForm!:FormGroup
+  public BoolEpsForm!:FormGroup
   measuresArray: Measures[] = []
 
 
@@ -29,17 +31,30 @@ export class LinechartComponent implements OnInit {
   satArray: Satellite[] = [];
   modArray: Modules[] = [];
 
+  dataStatus!:number
+  modArrayStatus: Modules[] = [];
+  labelStatus!:string
+  titleStatus!:string
+
+  dataNumber!:number
+  modArrayNumber: Modules[] = [];
+  labelNumber!:string
+  titleNumber!:string
+
   constructor(public serviceMea: MeasuresService,
               private fb: FormBuilder,
+              private fb2: FormBuilder,
+              private fb3: FormBuilder,
               public servicesat: SatelliteService,
               public servicemod: ModulesService
     ) {}
 
     ngOnInit(): void {
       this.Form();
-      this.showModules();
+      this.showSensor();
+      this.showStatus();
+      this.showNumber();
       this.showSatellite();
-
       console.log(this.satArray);
     }
 
@@ -53,23 +68,36 @@ export class LinechartComponent implements OnInit {
 
 //Mostra a lista de módulos EPS Sensor
   
-    showModules(){
-      this.servicemod.getEPSModules().subscribe(dados=> {
+    showSensor(){
+      this.servicemod.getEPSsensor().subscribe(dados=> {
         this.modArray = dados;
         console.log(dados);
+      }) 
+    }
+
+    showStatus(){
+      this.servicemod.getEPSstatus().subscribe(dados2=> {
+        this.modArrayStatus = dados2;
+        console.log(dados2);
+      }) 
+    }
+
+    showNumber(){
+      this.servicemod.getEPSnumber().subscribe(dados3=> {
+        this.modArrayNumber = dados3;
+        console.log(dados3);
       }) 
     }
 
 //Vai pro gráfico
 Submit(){
   const formValue = this.chartEpsForm.value;
-  console.log(formValue);
   this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
-    let result = event.map((s:any)=> {return s.sample})
-    let label = event.map((s:any)=> {return s.sample_time})
+    let result = event.map((s:any)=> {return s.sample})  //Eixo Y
+    let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
     this.dataArray = result
     this.label = label
-   // console.log(this.label);
+   console.log(event);
     this.ChartData = [
       {data: this.dataArray, label: this.measureType, fill: false }
     ];
@@ -77,9 +105,9 @@ Submit(){
   });
 
   this.servicemod.getOneModule(formValue.moduledescription).subscribe(dados => {
-    this.title = dados.map((m:any)=> {return m.moduledescription})
-    this.measureType = dados.map((m:any)=> {return m.measuretype})
-    this.dimen = dados.map((m:any)=> {return m.dimension})
+    this.title = dados.map((m:any)=> {return m.moduledescription}) //descrição/nome
+    this.measureType = dados.map((m:any)=> {return m.measuretype}) //volt, corrente, temperatura
+    this.dimen = dados.map((m:any)=> {return m.dimension})   //dimensão
     console.log(dados);
     this.ChartOptions= {
       title:{
@@ -114,15 +142,60 @@ Submit(){
   });
 }
 
+Submit2(){
+  const formValue = this.NumberEpsForm.value;
+  console.log(formValue);
+  this.titleNumber = formValue.satellite_name + '/' + formValue.moduledescription
+  this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
+    let size = event.length - 1;
+    let result = event.map((s:any)=> {return s.sample})  //Eixo Y
+    let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
+    this.dataNumber = result[size];
+    this.labelNumber = label
+    console.log(event);
+    console.log(this.dataNumber);
+  });
+  
+
+}
+//Vai pro Bool
+Submit3(){
+  const formValue = this.BoolEpsForm.value;
+  console.log(formValue);
+  this.titleStatus = formValue.satellite_name + '/' + formValue.moduledescription
+  this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
+    let size = event.length - 1;
+    let result = event.map((s:any)=> {return s.status})  //Eixo Y
+    let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
+    this.dataStatus = result[size];
+    this.labelStatus = label
+    console.log(event);
+    console.log(this.dataStatus);
+  });
+}
+
+//Formulários 
+
 Form(){
   this.chartEpsForm = this.fb.group({
     satellite_name: ['', [Validators.required]],
     moduledescription: ['', [Validators.required]],
     pagination: ['', [Validators.required]]
   });
-  }
 
+  this.NumberEpsForm = this.fb2.group({
+    satellite_name: ['', [Validators.required]],
+    moduledescription: ['', [Validators.required]]
+  });
+
+  this.BoolEpsForm = this.fb3.group({
+    satellite_name: ['', [Validators.required]],
+    moduledescription: ['', [Validators.required]]
+  });
+  }
   
+
+//Chart inicial
   ChartOptions: ChartOptions = {
     title:{
       text:'EPS',
@@ -173,17 +246,88 @@ Form(){
 
 
 /*
-  showTochart(){
-    this.serviceMea.getChart('Solar Panel X axis voltage','PostTest')
-  .subscribe(event => {
-    let result = event.map((s:any)=> {return s.sample})
-    let label = event.map((s:any)=> {return s.sample_time})
+Submit(){
+  const formValue = this.chartEpsForm.value;
+  this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
+    let result = event.map((s:any)=> {return s.sample})  //Eixo Y
+    let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
     this.dataArray = result
     this.label = label
-    console.log(this.label);
+   console.log(event);
     this.ChartData = [
-      {data: this.dataArray, label: 'Voltage', fill: false }
+      {data: this.dataArray, label: this.measureType, fill: false }
     ];
     this.ChartLabels = this.label;
   });
-} */
+
+  this.servicemod.getOneModule(formValue.moduledescription).subscribe(dados => {
+    this.title = dados.map((m:any)=> {return m.moduledescription}) //descrição/nome
+    this.measureType = dados.map((m:any)=> {return m.measuretype}) //volt, corrente, temperatura
+    this.dimen = dados.map((m:any)=> {return m.dimension})   //dimensão
+    console.log(dados);
+    this.ChartOptions= {
+      title:{
+        text:formValue.satellite_name + '   ' + this.title,
+        fontSize: 8,
+        display:true
+      },
+      responsive: true,
+      scales: {
+        yAxes: [
+         {
+          display: true,
+          scaleLabel: {
+           display: true,
+           labelString: this.dimen,
+          },
+         },
+        ],
+        xAxes: [
+         {
+          ticks: {
+            fontSize: 6
+        },
+          scaleLabel: {
+           display: false,
+           labelString: "Time",
+          },
+         },
+        ],
+       }
+    };
+  });
+}
+
+Submit2(){
+  const formValue = this.NumberEpsForm.value;
+  console.log(formValue);
+  this.titleNumber = formValue.satellite_name + '/' + formValue.moduledescription
+  this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
+    let size = event.length - 1;
+    let result = event.map((s:any)=> {return s.sample})  //Eixo Y
+    let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
+    this.dataNumber = result[size];
+    this.labelNumber = label
+    console.log(event);
+    console.log(this.dataNumber);
+  });
+  
+
+}
+//Vai pro Bool
+Submit3(){
+  const formValue = this.BoolEpsForm.value;
+  console.log(formValue);
+  this.titleStatus = formValue.satellite_name + '/' + formValue.moduledescription
+  this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
+    let size = event.length - 1;
+    let result = event.map((s:any)=> {return s.status})  //Eixo Y
+    let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
+    this.dataStatus = result[size];
+    this.labelStatus = label
+    console.log(event);
+    console.log(this.dataStatus);
+  });
+
+
+*/

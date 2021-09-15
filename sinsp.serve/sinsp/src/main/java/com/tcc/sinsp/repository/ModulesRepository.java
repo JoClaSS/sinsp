@@ -43,10 +43,20 @@ public interface ModulesRepository extends JpaRepository<Modules,Integer>{
 			  @Param("moduleclass") String moduleclass	  
 			  );
 	  
+	  
 	  @Query("SELECT m FROM Modules m WHERE (:moduledescription is null or m.moduledescription= :moduledescription)"
 			  )
 	  List<Modules> findModulesByDescription(
 			  @Param("moduledescription") String moduledescription	  
+			  );
+	  
+	  @Query(value = "SELECT * FROM modules m WHERE (:modulename is null or m.modulename= :modulename)"
+			  + "and not( m.moduleclass = 'sensor' or m.moduleclass= :moduleclass)"
+			  , nativeQuery = true
+			  )
+	  List<Modules> findModulesByclassNot(
+			  @Param("modulename") String modulename,
+			  @Param("moduleclass") String moduleclass
 			  );
 	  
 	  

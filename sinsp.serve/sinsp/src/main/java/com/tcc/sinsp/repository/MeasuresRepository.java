@@ -31,4 +31,15 @@ public interface MeasuresRepository extends JpaRepository<Measures,Long> {
 			  @Param("satellites") Integer satellites
 			  ); 
 	  
+	  
+	  @Query(value = "select * from measures m where m.modules_id = :modules and m.satellites_id =:satellites"
+			  , nativeQuery = true
+			  )
+	  Page<Measures> findMeasuresPage(
+			  @Param("modules") Integer modules,
+			  @Param("satellites") Integer satellites,
+			  Pageable pageable
+			  ); 
+	  
+	  
 }
