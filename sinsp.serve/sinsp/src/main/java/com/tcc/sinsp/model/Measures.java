@@ -2,17 +2,7 @@ package com.tcc.sinsp.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -44,11 +34,11 @@ public class Measures {
 	  @Column(name="sample_time")
 	  @Temporal(TemporalType.TIMESTAMP)
 	  private Date sample_time;
-	  @ManyToOne
+	  @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	  @JoinColumn(name="satellites_id")
 	  @JsonIgnore
 	  private Satellites satellite;
-	  @ManyToOne
+	  @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	  @JoinColumn(name="modules_id")
 	  @JsonIgnore
 	  private Modules module;
