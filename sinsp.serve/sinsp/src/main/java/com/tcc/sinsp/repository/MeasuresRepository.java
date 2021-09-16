@@ -3,6 +3,7 @@ package com.tcc.sinsp.repository;
 
 import java.util.List;
 
+import com.tcc.sinsp.model.Satellites;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -39,6 +40,5 @@ public interface MeasuresRepository extends JpaRepository<Measures,Long> {
 			  @Param("satellites") Integer satellites
 			  ); 
 	  
-	  
-	  
+	  List<Measures> findAllBySatellite(Satellites sat);
 }
