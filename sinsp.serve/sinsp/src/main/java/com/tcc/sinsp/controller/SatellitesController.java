@@ -3,6 +3,8 @@ package com.tcc.sinsp.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.tcc.sinsp.model.Measures;
+import com.tcc.sinsp.repository.MeasuresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,7 +38,9 @@ public class SatellitesController {
 	private final ModulesRepository mRep;
 	@Autowired
 	private final ProfilesRepository pRep;
-	
+	@Autowired
+	private final MeasuresRepository measuresRepository;
+
 	private final LogsController lCon;
 	    
     @PostMapping
@@ -92,12 +96,16 @@ public class SatellitesController {
 	    @ResponseStatus(HttpStatus.NO_CONTENT)
 	    public void deletePost(@PathVariable Integer id) throws Exception {
 	    	
-	    	Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("Delete failed"));
-	    	Logs log = new Logs();
-	     	  log.setMessage(
-	 				"Satellite " + satellite.getSatellite_name() + " has been deleted");
-	 	      lCon.save(log);
-	    	 repository.delete(satellite);
+			Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("Delete failed"));
+			Logs log = new Logs();
+		  	log.setMessage(
+				"Satellite " + satellite.getSatellite_name() + " has been deleted");
+		  	lCon.save(log);
+
+			List<Measures> measures = measuresRepository.findAllBySatellite(satellite);
+			measuresRepository.deleteAll(measures);
+
+		 	repository.delete(satellite);
 	    }
 	    
 	  }
