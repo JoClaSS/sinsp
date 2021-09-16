@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tcc.sinsp.model.Logs;
+import com.tcc.sinsp.model.Measures;
 import com.tcc.sinsp.model.Satellites;
 import com.tcc.sinsp.model.SatellitesProfileDTO;
+import com.tcc.sinsp.repository.MeasuresRepository;
 import com.tcc.sinsp.repository.ModulesRepository;
 import com.tcc.sinsp.repository.ProfilesRepository;
 import com.tcc.sinsp.repository.SatellitesRepository;
@@ -36,6 +38,8 @@ public class SatellitesController {
 	private final ModulesRepository mRep;
 	@Autowired
 	private final ProfilesRepository pRep;
+	@Autowired
+	private final MeasuresRepository meaRep;
 	
 	private final LogsController lCon;
 	    
@@ -91,8 +95,7 @@ public class SatellitesController {
 	    @DeleteMapping(value = "{id}")
 	    @ResponseStatus(HttpStatus.NO_CONTENT)
 	    public void deletePost(@PathVariable Integer id) throws Exception {
-	    	
-	    	Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("Delete failed"));
+	    	Satellites satellite = repository.findById(id).orElseThrow(() -> new Exception("not found"));
 	    	Logs log = new Logs();
 	     	  log.setMessage(
 	 				"Satellite " + satellite.getSatellite_name() + " has been deleted");

@@ -86,21 +86,6 @@ public class MeasuresController {
     }
     
     
-    @GetMapping("/page100")
-    public Page<Measures> getOrganizedMeasure(
-    		@RequestParam(value = "modules", required = true) String modules,
-    		@RequestParam(value = "description", required = true) String description,
-    		@RequestParam(value = "satellites", required = true) String satellites,
-    		@PageableDefault(page=0,size=100,sort="id",direction= Sort.Direction.DESC) Pageable pageable
-    		)throws Exception {
-    	 Modules module = new Modules();
-	     Satellites satellite = new Satellites();
-	     satellite = sRep.findByName(satellites)
-	    		 .orElseThrow(() -> new Exception("Satellite doesn't exist"));
-	     module = mRep.findModules(modules, null, null, null, null, null, null, null, description)
-	    		 .orElseThrow(() -> new Exception("Module doesn't exist"));
-    	   return repository.findMeasuresPage(module.getId(),satellite.getId(),pageable);
-    }     
     
     @GetMapping("/chart")
     public List<Measures> getOrganizedMeasureEPS(

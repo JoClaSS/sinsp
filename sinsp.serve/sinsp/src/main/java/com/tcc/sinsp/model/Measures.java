@@ -2,6 +2,7 @@ package com.tcc.sinsp.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,11 +45,11 @@ public class Measures {
 	  @Column(name="sample_time")
 	  @Temporal(TemporalType.TIMESTAMP)
 	  private Date sample_time;
-	  @ManyToOne
+	  @ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.REFRESH})
 	  @JoinColumn(name="satellites_id")
 	  @JsonIgnore
 	  private Satellites satellite;
-	  @ManyToOne
+	  @ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.REFRESH})
 	  @JoinColumn(name="modules_id")
 	  @JsonIgnore
 	  private Modules module;

@@ -95,23 +95,25 @@ export class LinechartComponent implements OnInit {
 //Vai pro gráfico
 Submit(){
   const formValue = this.chartEpsForm.value;
+  console.log(formValue);
   this.serviceMea.getChart(formValue.moduledescription,formValue.satellite_name).subscribe(event => {
     let result = event.map((s:any)=> {return s.sample})  //Eixo Y
     let label = event.map((s:any)=> {return s.sample_time}) //Eixo X
     let size = result.length;
-    let count = 0;
+    let page = formValue.pagination;
     if(size>formValue.pagination){
-      size = size - formValue.pagination;
-    while(count!= formValue.pagination){
+      size = size - page
+      let count = 0;
+    while(size!=page){
       this.pageArray[count] = result[size]
       this.labelArray[count] = label[size]
       size++
       count++
     }
-  }
+   } 
     this.dataArray = this.pageArray
     this.label = this.labelArray
-   console.log(this.pageArray);
+   console.log(this.dataArray);
     this.ChartData = [
       {data: this.dataArray, label: this.measureType, fill: false }
     ];
@@ -186,6 +188,10 @@ Submit3(){
     console.log(event);
     console.log(this.dataStatus);
   });
+}
+
+Clean(){
+  window.location.reload();
 }
 
 MeaArray:Measures[] = []

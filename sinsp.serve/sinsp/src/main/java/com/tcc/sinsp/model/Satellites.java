@@ -37,14 +37,12 @@ public class Satellites {
 	  private Boolean active;
 	  @Column(name="satellite_name", nullable=false)
 	  private String satellite_name;
-	  @ManyToMany(fetch = FetchType.LAZY,
-		        cascade ={CascadeType.REMOVE})
+	  @ManyToMany(cascade= {CascadeType.PERSIST,CascadeType.REFRESH})
 	  @JoinTable(name="satellites_responsible",
       joinColumns=@JoinColumn(name="satellites_id"),
       inverseJoinColumns=@JoinColumn(name="responsible_id"))
 	  private List<Profiles> responsible;
-	  @ManyToMany(fetch = FetchType.LAZY,
-		        cascade ={CascadeType.REMOVE})
+	  @ManyToMany(cascade= {CascadeType.PERSIST,CascadeType.REFRESH})
 	  @JoinTable(name="satellites_modules",
       joinColumns=@JoinColumn(name="satellites_id"),
       inverseJoinColumns=@JoinColumn(name="modules_id"))
